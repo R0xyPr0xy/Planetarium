@@ -1,31 +1,41 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-// ---------------------------------------------- Cube example ----------------------------------------------------
+// Clear the existing HTML content
+document.body.innerHTML = '<div id="app"></div>';
 
-// Set up scene and camera
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-camera.position.z = 3;
+// Render your React component instead
+const root = createRoot(document.getElementById('app'));
+root.render(<h1>Hello, world</h1>);
 
-// Set up renderer
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
 
-// Create a cube
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x753355 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+// // ---------------------------------------------- Cube example ----------------------------------------------------
 
-// Animate cube
-function animate() {
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-	renderer.render( scene, camera );
-}
-renderer.setAnimationLoop( animate );
+// // Set up scene and camera
+// const scene = new THREE.Scene();
+// const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// camera.position.z = 3;
+
+// // Set up renderer
+// const renderer = new THREE.WebGLRenderer();
+// renderer.setSize( window.innerWidth, window.innerHeight );
+// document.body.appendChild( renderer.domElement );
+
+// // Create a cube
+// const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+// const material = new THREE.MeshBasicMaterial( { color: 0x753355 } );
+// const cube = new THREE.Mesh( geometry, material );
+// scene.add( cube );
+
+// // Animate cube
+// function animate() {
+//     cube.rotation.x += 0.01;
+//     cube.rotation.y += 0.01;
+// 	renderer.render( scene, camera );
+// }
+// renderer.setAnimationLoop( animate );
 
 // ---------------------------------------------- Line example ----------------------------------------------------
 // // Set up renderer
