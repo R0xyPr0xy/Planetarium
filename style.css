@@ -1,17 +1,41 @@
 
-.title {
+.planet-name {
 	padding-top: 20px;
 	width: 100%;
 	text-align: center;
 	z-index: 100;
 	display:block;
     color: rgb(255, 255, 255);
+	font-family: Verdana, sans-serif;
+}
+
+.stinger{
+	font-style: italic;
+	color: rgb(188, 188, 188);
+	font-family: Verdana, sans-serif;
 }
 
 p {
 	color: white;
 	text-align: center;
+	font-family: Verdana, sans-serif;
 }
+
+#planet-info {
+	
+	margin-top: 40px;
+	margin-left: 70px;
+	p {
+		color: rgb(158, 158, 158);
+		text-align: left;
+		font-family: Verdana, sans-serif;
+	}
+}
+
+.highlighted {
+	color: rgb(255, 255, 255); 
+	/* font-weight: bold;  */
+  }
 
 .information-box {
 	position: relative;
@@ -21,6 +45,21 @@ p {
 	background-color: rgb(45, 45, 45);
 	display:block;
 	border-radius: 15px;
+	overflow: auto;
+}
+
+#wiki-excerpt {
+	color: white;
+	text-align: center;
+	margin-top: 50px;
+	margin-left: 70px;
+	margin-right: 70px;
+	text-align: justify;
+  	text-justify: inter-word;
+	letter-spacing: 1px;
+	font-family: Verdana, sans-serif;
+	font-size: 13px;
+	line-height: 150%;
 }
 
 #bckgrnd {

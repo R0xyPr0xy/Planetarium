@@ -5,6 +5,63 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+let planetName = "Mercury";
+let stinger = "Nearest planet to the Sun";
+
+let planetNameBox = document.querySelector(".planet-name");
+planetNameBox.innerHTML += planetName;
+
+let stingerBox = document.querySelector(".stinger");
+stingerBox.innerHTML += stinger;
+
+// Fetch sun distance
+async function fetchDistanceToEarth() {
+  let url = "https://www.wikidata.org/wiki/Special:EntityData/Q308.json";
+
+  let response = await fetch(url);
+  let data = await response.json();
+
+  // Extracting the distance to the Sun (AU)
+  let distance = data.entities.Q308.claims.P2583[0].mainsnak.datavalue.value.amount;
+  let msg = `Distance to Earth : <span class="highlighted">${distance} km </span>`;
+
+  let earthDistBox = document.querySelector(".earth-distance");
+  earthDistBox.innerHTML += msg;
+}
+
+fetchDistanceToEarth();
+
+// Fetch sun distance
+async function fetchTemperature() {
+  let url = "https://www.wikidata.org/wiki/Special:EntityData/Q308.json";
+
+  let response = await fetch(url);
+  let data = await response.json();
+
+  // Extracting the distance to the Sun (AU)
+  let temperature = data.entities.Q308.claims.P2076[0].mainsnak.datavalue.value.amount;
+  let msg = `Temperature : <span class="highlighted">${temperature} kelvin </span>`;
+
+  let tempBox = document.querySelector(".temperature");
+  tempBox.innerHTML += msg;
+}
+
+fetchTemperature();
+
+// Fetch wiki excerpt
+let pageTitle = "Mercury_(planet)";
+let url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + pageTitle;
+
+async function fetchExcerpt() {
+  let f = await fetch(url)
+  let j = await f.json()
+
+  let excerptBox = document.getElementById("wiki-excerpt");
+  excerptBox.innerHTML += j.extract + " — Wikipedia";
+}
+
+fetchExcerpt()
+
 // Set up scene and camera
 const scene = new THREE.Scene();
 var renderWidth = window.innerWidth * (45 / 100); 
