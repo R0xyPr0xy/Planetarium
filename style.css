@@ -64,6 +64,7 @@ p {
 	display:block;
 	border-radius: 15px;
 	overflow-y: auto;
+	text-align: center; 
 }
 
 #wiki-excerpt {
@@ -100,4 +101,27 @@ p {
 	z-index: -1;
 	width: 100%;
 	height: 100%;
+}
+
+#next-button{
+	background-image: url('forward-arrow-icon.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: #707070;
+	border-radius: 8px;
+
+	transition-duration: 0.3s;
+	transition: transform 0.5s ease;
+	opacity:0.5;
+	
+	width: 40px;
+	height:40px;
+
+	margin:30px;
+}
+
+#next-button:hover{
+	background-color:rgb(54, 54, 54);
+	transform: translateY(-5px);
 }

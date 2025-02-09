@@ -14,14 +14,14 @@ planetNameBox.innerHTML += planetName;
 let stingerBox = document.querySelector(".stinger");
 stingerBox.innerHTML += stinger;
 
-// Fetch sun distance
+// Fetch earth distance
 async function fetchDistanceToEarth() {
   let url = "https://www.wikidata.org/wiki/Special:EntityData/Q308.json";
 
   let response = await fetch(url);
   let data = await response.json();
 
-  // Extracting the distance to the Sun (AU)
+  // Extracting the distance to the earth (AU)
   let distance = data.entities.Q308.claims.P2583[0].mainsnak.datavalue.value.amount;
   let msg = `Distance to Earth : <span class="highlighted">${distance} km </span>`;
 
@@ -78,10 +78,6 @@ async function fetchExcerpt() {
 }
 
 fetchExcerpt()
-
-// Can't scroll bug
-const infoBox = document.querySelector(".information-box");
-infoBox.scrollTop = infoBox.scrollHeight;
 
 // Set up scene and camera
 const scene = new THREE.Scene();
