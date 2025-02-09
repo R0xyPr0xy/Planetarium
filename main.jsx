@@ -31,14 +31,14 @@ async function fetchDistanceToEarth() {
 
 fetchDistanceToEarth();
 
-// Fetch sun distance
+// Fetch temperature
 async function fetchTemperature() {
   let url = "https://www.wikidata.org/wiki/Special:EntityData/Q308.json";
 
   let response = await fetch(url);
   let data = await response.json();
 
-  // Extracting the distance to the Sun (AU)
+  // Extracting temperature
   let temperature = data.entities.Q308.claims.P2076[0].mainsnak.datavalue.value.amount;
   let msg = `Temperature : <span class="highlighted">${temperature} kelvin </span>`;
 
@@ -47,6 +47,23 @@ async function fetchTemperature() {
 }
 
 fetchTemperature();
+
+// Fetch radius
+async function fetchRadius() {
+  let url = "https://www.wikidata.org/wiki/Special:EntityData/Q308.json";
+
+  let response = await fetch(url);
+  let data = await response.json();
+
+  // Extracting radius
+  let radius = data.entities.Q308.claims.P2120[0].mainsnak.datavalue.value.amount;
+  let msg = `Radius : <span class="highlighted">${radius} km </span>`;
+
+  let radiusBox = document.querySelector(".radius");
+  radiusBox.innerHTML += msg;
+}
+
+fetchRadius();
 
 // Fetch wiki excerpt
 let pageTitle = "Mercury_(planet)";
@@ -61,6 +78,10 @@ async function fetchExcerpt() {
 }
 
 fetchExcerpt()
+
+// Can't scroll bug
+const infoBox = document.querySelector(".information-box");
+infoBox.scrollTop = infoBox.scrollHeight;
 
 // Set up scene and camera
 const scene = new THREE.Scene();
