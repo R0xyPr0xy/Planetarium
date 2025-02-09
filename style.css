@@ -103,6 +103,30 @@ p {
 	height: 100%;
 }
 
+#previous-button{
+	background-image: url('back-arrow-icon.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: #707070;
+	border-radius: 8px;
+	border-style: outset;
+
+	transition-duration: 0.3s;
+	transition: transform 0.5s ease;
+	opacity:0.5;
+	
+	width: 40px;
+	height:40px;
+
+	margin:30px;
+}
+
+#previous-button:hover{
+	background-color:rgb(54, 54, 54);
+	transform: translateY(-5px);
+}
+
 #next-button{
 	background-image: url('forward-arrow-icon.png'); 
     background-size: cover; 
@@ -110,6 +134,7 @@ p {
     background-repeat: no-repeat; 
     background-color: #707070;
 	border-radius: 8px;
+	border-style: outset;
 
 	transition-duration: 0.3s;
 	transition: transform 0.5s ease;
