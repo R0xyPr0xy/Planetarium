@@ -1,35 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>My first three.js app</title>
-        <link rel="stylesheet" href="style.css">
-		<style>
-			body { margin: 0; }
-		</style>
-	</head>
-	<body>
-		<div id="planet-details" >
-			<div class="information-box">
-				<h1 class="planet-name"></h1>
-				<hr class="solid" style="margin-left: 100px; margin-right: 100px;"> 
-				<p class="stinger"></p>
-				<div id="planet-info">
-					<p class="earth-distance"></p>
-					<p class="temperature"></p>
-					<p class="radius"></p>
-				</div>
-				<div id="wiki-excerpt"></div>
-				<a href="sun.html">
-					<button id="previous-button"></button>
-				</a>
-				<a href="earth.html">
-					<button id="next-button"></button>
-				</a>
-			</div>
-        	
-		</div>
-		<div id="bckgrnd"></div>
-		<script type="module" src="/main.jsx"></script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="bckgrnd"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
