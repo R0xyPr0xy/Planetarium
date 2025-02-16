@@ -6,7 +6,6 @@ let dataID;
 
 fetchData(currentPlanet);
 
-// How to tell React to update UI dynamically when new planet is being assigned?
 function fetchData(planet) {
   switch (planet) {
     case "Mercury":
@@ -24,9 +23,9 @@ function fetchData(planet) {
   }
 }
 
-// Fetch earth data
-async function fetchEarthData() {
-  let url = "https://www.wikidata.org/wiki/Special:EntityData/${dataID}.json";
+// Fetch planet data
+async function fetchPlanetData() {
+  let url = `https://www.wikidata.org/wiki/Special:EntityData/${dataID}.json`;
 
   let response = await fetch(url);
   let data = await response.json();
@@ -35,7 +34,7 @@ async function fetchEarthData() {
 }
 
 // Fetch earth excerpt
-async function fetchEarthExcerpt() {
+async function fetchExcerpt() {
   let url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + wikiPage;
 
   let response = await fetch(url);
@@ -53,13 +52,13 @@ export default function PlanetDetails() {
   const [radius, setRadius] = useState("");
   const [excerpt, setExcerpt] = useState("");
 
-  fetchEarthData().then(({ claims }) => {
+  fetchPlanetData().then(({ claims }) => {
     setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
     setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
     setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
   });
 
-  fetchEarthExcerpt().then(({ excerpt }) => {
+  fetchExcerpt().then(({ excerpt }) => {
     setExcerpt(excerpt);
   });
 
