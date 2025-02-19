@@ -20,7 +20,7 @@ const Planet = () => {
       ref={planetRef}
       scale={[1, 1, 1]}
       position={[0, 0, 0]}
-      rotation={[20, Math.PI, 50]}
+      rotation={[20, Math.PI, 0]}
     />
   );
 };
@@ -30,7 +30,7 @@ const Scene = () => {
     <Canvas camera={{ position: [0, 0, 1200] }}>
       {/* Basic Lighting */}
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 10]} intensity={0.9} />
+      <directionalLight position={[10, 10, 5]} intensity={1.7} />
 
       {/* Imported 3D Model */}
       <Planet />
