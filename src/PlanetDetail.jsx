@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Canvas } from "@react-three/fiber";
 let currentPlanet = "Mercury";
 let wikiPage;
 let dataID;

@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import PlanetDetails from "./PlanetDetail";
+import App from "./App";
 
 const rootElem = document.getElementById("root");
 
-createRoot(rootElem).render(<PlanetDetails />);
+createRoot(rootElem).render(<App />);

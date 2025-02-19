@@ -3,7 +3,6 @@
   width: 10px;
 }
 
-/* Scrollbar track */
 ::-webkit-scrollbar-track {
   background: #707070;
   border-radius: 10px;
@@ -15,7 +14,6 @@
   border-radius: 10px;
 }
 
-/* Scrollbar hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #9e9e9e;
 }
@@ -39,6 +37,11 @@ p {
   color: white;
   text-align: center;
   font-family: Verdana, sans-serif;
+}
+
+#canvas-container {
+  width: 45vw;
+  height: 100vh;
 }
 
 .planet-info {
@@ -85,7 +88,7 @@ p {
   justify-content: flex-end;
   position: absolute;
 
-  width: 50%;
+  width: 55%;
   height: 100%;
 
   right: 0;
