@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+// import { Canvas } from "@react-three/fiber";
 let currentPlanet = "Mercury";
 let wikiPage;
 let dataID;
@@ -33,14 +33,14 @@ async function fetchPlanetData() {
   return data.entities[dataID];
 }
 
-// Fetch earth excerpt
+// Fetch excerpt
 async function fetchExcerpt() {
   let url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + wikiPage;
 
   let response = await fetch(url);
-  let excerpt = (await response.json()) + " — Wikipedia";
+  let excerpt = await response.json();
 
-  return excerpt;
+  return excerpt.extract;
 }
 
 export default function PlanetDetails() {
@@ -58,8 +58,8 @@ export default function PlanetDetails() {
     setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
   });
 
-  fetchExcerpt().then(({ excerpt }) => {
-    setExcerpt(excerpt);
+  fetchExcerpt().then((extract) => {
+    setExcerpt(extract);
   });
 
   return (
@@ -82,7 +82,10 @@ export default function PlanetDetails() {
           </p>
         </div>
         <div className="wiki-excerpt">
-          Excerpt : <span className="highlighted">{excerpt}</span>
+          {" "}
+          <span className="highlighted">
+            {excerpt || "No excerpt available"} — Wikipedia
+          </span>
         </div>
         <a href="sun.html">
           <button className="previous-button"></button>
