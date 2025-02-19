@@ -6,7 +6,7 @@ function App() {
   return (
     <div style={{ width: "100vw", height: "100vh", display: "flex" }}>
       {/* Three.js Canvas */}
-      <div style={{ flex: 2 }}>
+      <div id="canvas-container">
         <Scene />
       </div>
 
@@ -16,6 +16,8 @@ function App() {
       >
         <PlanetDetails />
       </div>
+
+      <div id="bckgrnd"></div>
     </div>
   );
 }

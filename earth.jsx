@@ -1,9 +1,8 @@
-import * as THREE from 'three';
-// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import React from "react";
+import ReactDOM from "react-dom";
 
 let planetName = "Earth";
 let stinger = "Third planet from the Sun";
@@ -22,7 +21,8 @@ async function fetchTemperature() {
   let data = await response.json();
 
   // Extracting temperature
-  let temperature = data.entities.Q2.claims.P2076[0].mainsnak.datavalue.value.amount;
+  let temperature =
+    data.entities.Q2.claims.P2076[0].mainsnak.datavalue.value.amount;
   let msg = `Temperature : <span class="highlighted">${temperature} kelvin </span>`;
 
   let tempBox = document.querySelector(".temperature");
@@ -53,28 +53,33 @@ let pageTitle = "Earth";
 let url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + pageTitle;
 
 async function fetchExcerpt() {
-  let f = await fetch(url)
-  let j = await f.json()
+  let f = await fetch(url);
+  let j = await f.json();
 
   let excerptBox = document.getElementById("wiki-excerpt");
   excerptBox.innerHTML += j.extract + " — Wikipedia";
 }
 
-fetchExcerpt()
+fetchExcerpt();
 
 // Set up scene and camera
 const scene = new THREE.Scene();
-var renderWidth = window.innerWidth * (45 / 100); 
-const camera = new THREE.PerspectiveCamera( 75, renderWidth / window.innerHeight, 0.1, 1000 );
+var renderWidth = window.innerWidth * (45 / 100);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  renderWidth / window.innerHeight,
+  0.1,
+  1000
+);
 camera.position.z = 1200;
 
 // Set up renderer
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize( renderWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+renderer.setSize(renderWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
 // Set up light
-const light = new THREE.DirectionalLight(0xffffff, 2); 
+const light = new THREE.DirectionalLight(0xffffff, 2);
 light.position.set(10, 10, 10);
 scene.add(light);
 
@@ -86,16 +91,20 @@ let earthModel;
 
 // create loader
 const loader = new GLTFLoader();
-loader.load('/3D-assets/earth.glb', function(gltf) {
-  earthModel = gltf.scene;
-  scene.add(earthModel);
-  earthModel.rotation.set(0,330,0);
+loader.load(
+  "/3D-assets/earth.glb",
+  function (gltf) {
+    earthModel = gltf.scene;
+    scene.add(earthModel);
+    earthModel.rotation.set(0, 330, 0);
 
-  animate(); // Animate only once model is loaded
-
-}, undefined, function (error) {
-  console.error('Error loading GLTF model:', error);
-});
+    animate(); // Animate only once model is loaded
+  },
+  undefined,
+  function (error) {
+    console.error("Error loading GLTF model:", error);
+  }
+);
 
 // Animate earth model
 function animate() {
@@ -104,9 +113,7 @@ function animate() {
     earthModel.rotation.y += 0.0002;
   }
 
-  renderer.render( scene, camera );
+  renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
 animate();
-
-
