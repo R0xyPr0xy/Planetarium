@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react";
 
+// Optimize catalogue for more planets later
+
 const planetCatalogue = {
   mercury: {
     planetName: "Mercury",
     stinger: "Nearest planet to the Sun",
     wikiPage: "Mercury_(planet)",
     dataID: "Q308",
+    previousPlanet: "sun",
+    nextPlanet: "earth",
   },
   earth: {
     planetName: "Earth",
     stinger: "Third planet from the Sun",
     wikiPage: "Earth",
     dataID: "Q2",
+    previousPlanet: "mercury",
+    nextPlanet: "sun",
   },
   sun: {
     planetName: "Sun",
     stinger: "The center of our system",
     wikiPage: "Sun",
     dataID: "Q525",
+    previousPlanet: "earth",
+    nextPlanet: "mercury",
   },
 };
 
@@ -42,19 +50,22 @@ async function fetchExcerpt(wikiPage) {
 }
 
 function PlanetInfo({ planet }) {
-  const [distance, setDistance] = useState("");
-  const [temperature, setTemperature] = useState("");
-  const [radius, setRadius] = useState("");
+  const [distance, setDistance] = useState("Loading");
+  const [temperature, setTemperature] = useState("Loading");
+  const [radius, setRadius] = useState("Loading");
 
   const { dataID } = planetCatalogue[planet];
 
-  useEffect(function () {
-    fetchPlanetData(dataID).then(({ claims }) => {
-      setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
-      setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
-      setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
-    });
-  }, []);
+  useEffect(
+    function () {
+      fetchPlanetData(dataID).then(({ claims }) => {
+        setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
+        setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
+        setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
+      });
+    },
+    [planet]
+  );
 
   return (
     <div className="planet-info">
@@ -72,15 +83,20 @@ function PlanetInfo({ planet }) {
 }
 
 function WikiExcerpt({ planet }) {
-  const [excerpt, setExcerpt] = useState("");
+  const [excerpt, setExcerpt] = useState("Loading");
 
   const { wikiPage } = planetCatalogue[planet];
 
-  useEffect(function () {
-    fetchExcerpt(wikiPage).then((extract) => {
-      setExcerpt(extract);
-    });
-  }, []);
+  // Add cached data
+  useEffect(
+    function () {
+      setExcerpt("Loading");
+      fetchExcerpt(wikiPage).then((extract) => {
+        setExcerpt(extract);
+      });
+    },
+    [planet]
+  );
 
   return (
     <div className="wiki-excerpt">
@@ -93,9 +109,17 @@ function WikiExcerpt({ planet }) {
 }
 
 export default function PlanetDetails() {
-  const [currentPlanet, setCurrentPlanet] = useState("earth");
+  const [currentPlanet, setCurrentPlanet] = useState("mercury");
 
-  const { planetName, stinger } = planetCatalogue[currentPlanet];
+  const { planetName, stinger, previousPlanet, nextPlanet } =
+    planetCatalogue[currentPlanet];
+
+  const selectPreviousPlanet = () => {
+    setCurrentPlanet(previousPlanet);
+  };
+  const selectNextPlanet = () => {
+    setCurrentPlanet(nextPlanet);
+  };
 
   return (
     <div className="planet-details">
@@ -105,12 +129,11 @@ export default function PlanetDetails() {
         <p className="stinger">{stinger}</p>
         <PlanetInfo planet={currentPlanet} />
         <WikiExcerpt planet={currentPlanet} />
-        <a href="sun.html">
-          <button className="previous-button"></button>
-        </a>
-        <a href="earth.html">
-          <button className="next-button"></button>
-        </a>
+        <button
+          className="previous-button"
+          onClick={selectPreviousPlanet}
+        ></button>
+        <button className="next-button" onClick={selectNextPlanet}></button>
       </div>
     </div>
   );
