@@ -27,7 +27,7 @@ const Planet = () => {
 
 const Scene = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 1200] }}>
+    <Canvas camera={{ position: [0, 0, 1200], near: 0.01, far: 100000 }}>
       {/* Basic Lighting */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1.7} />

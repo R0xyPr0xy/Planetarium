@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 let currentPlanet = "Mercury";
 let wikiPage;
 let dataID;
@@ -42,24 +42,56 @@ async function fetchExcerpt() {
   return excerpt.extract;
 }
 
-export default function PlanetDetails() {
-  const planetName = "Mercury";
-  const stinger = "Nearest planet to the Sun";
-
+function PlanetInfo() {
   const [distance, setDistance] = useState("");
   const [temperature, setTemperature] = useState("");
   const [radius, setRadius] = useState("");
+
+  useEffect(function () {
+    fetchPlanetData().then(({ claims }) => {
+      setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
+      setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
+      setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
+    });
+  }, []);
+
+  return (
+    <div className="planet-info">
+      <p className="earth-distance">
+        Distance to Earth : <span className="highlighted">{distance} km </span>
+      </p>
+      <p className="temperature">
+        Temperature : <span className="highlighted">{temperature} kelvin </span>
+      </p>
+      <p className="radius">
+        Radius : <span className="highlighted">{radius} km </span>
+      </p>
+    </div>
+  );
+}
+
+function WikiExcerpt() {
   const [excerpt, setExcerpt] = useState("");
 
-  fetchPlanetData().then(({ claims }) => {
-    setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
-    setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
-    setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
-  });
+  useEffect(function () {
+    fetchExcerpt().then((extract) => {
+      setExcerpt(extract);
+    });
+  }, []);
 
-  fetchExcerpt().then((extract) => {
-    setExcerpt(extract);
-  });
+  return (
+    <div className="wiki-excerpt">
+      {" "}
+      <span className="highlighted">
+        {excerpt || "No excerpt available"} — Wikipedia
+      </span>
+    </div>
+  );
+}
+
+export default function PlanetDetails() {
+  const planetName = "Mercury";
+  const stinger = "Nearest planet to the Sun";
 
   return (
     <div className="planet-details">
@@ -67,25 +99,8 @@ export default function PlanetDetails() {
         <h1 className="planet-name">{planetName}</h1>
         <hr className="solid-rule" />
         <p className="stinger">{stinger}</p>
-        <div className="planet-info">
-          <p className="earth-distance">
-            Distance to Earth :{" "}
-            <span className="highlighted">{distance} km </span>
-          </p>
-          <p className="temperature">
-            Temperature :{" "}
-            <span className="highlighted">{temperature} kelvin </span>
-          </p>
-          <p className="radius">
-            Radius : <span className="highlighted">{radius} km </span>
-          </p>
-        </div>
-        <div className="wiki-excerpt">
-          {" "}
-          <span className="highlighted">
-            {excerpt || "No excerpt available"} — Wikipedia
-          </span>
-        </div>
+        <PlanetInfo />
+        <WikiExcerpt />
         <a href="sun.html">
           <button className="previous-button"></button>
         </a>
