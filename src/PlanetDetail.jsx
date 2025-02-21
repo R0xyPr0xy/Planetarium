@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Optimize catalogue for more planets later
+// Planet swapping
 
 const planetCatalogue = {
   mercury: {
