@@ -6,7 +6,7 @@ function CameraController({
   planetPosition,
   orbitControlsRef,
 }) {
-  const { camera, controls, invalidate } = useThree();
+  const { camera, invalidate } = useThree();
 
   useEffect(() => {
     camera.position.set(...cameraPosition);

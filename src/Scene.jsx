@@ -83,8 +83,11 @@ const Planets = () => {
 
 const Scene = ({ currentPlanet }) => {
   // Get camera position dynamically
-  const cameraPosition = [0, 0, planetCatalogue[currentPlanet].cameraDist];
   const planetPosition = planetCatalogue[currentPlanet].position;
+  const cameraDist = planetCatalogue[currentPlanet].cameraDist;
+
+  const cameraPosition = [planetPosition[0], 0, cameraDist];
+
   const orbitControlsRef = useRef();
 
   return (
