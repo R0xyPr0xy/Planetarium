@@ -1,0 +1,34 @@
+const planetCatalogue = {
+  mercury: {
+    planetName: "Mercury",
+    stinger: "Nearest planet to the Sun",
+    wikiPage: "Mercury_(planet)",
+    dataID: "Q308",
+    previousPlanet: "sun",
+    nextPlanet: "earth",
+    position: "1800",
+    cameraDist: "1200",
+  },
+  earth: {
+    planetName: "Earth",
+    stinger: "Third planet from the Sun",
+    wikiPage: "Earth",
+    dataID: "Q2",
+    previousPlanet: "mercury",
+    nextPlanet: "sun",
+    position: "2800",
+    cameraDist: "1200",
+  },
+  sun: {
+    planetName: "Sun",
+    stinger: "The center of our system",
+    wikiPage: "Sun",
+    dataID: "Q525",
+    previousPlanet: "earth",
+    nextPlanet: "mercury",
+    position: "0",
+    cameraDist: "1800",
+  },
+};
+
+export default planetCatalogue;

@@ -1,34 +1,5 @@
 import { useEffect, useState } from "react";
-
-// Optimize catalogue for more planets later
-// Planet swapping
-
-const planetCatalogue = {
-  mercury: {
-    planetName: "Mercury",
-    stinger: "Nearest planet to the Sun",
-    wikiPage: "Mercury_(planet)",
-    dataID: "Q308",
-    previousPlanet: "sun",
-    nextPlanet: "earth",
-  },
-  earth: {
-    planetName: "Earth",
-    stinger: "Third planet from the Sun",
-    wikiPage: "Earth",
-    dataID: "Q2",
-    previousPlanet: "mercury",
-    nextPlanet: "sun",
-  },
-  sun: {
-    planetName: "Sun",
-    stinger: "The center of our system",
-    wikiPage: "Sun",
-    dataID: "Q525",
-    previousPlanet: "earth",
-    nextPlanet: "mercury",
-  },
-};
+import planetCatalogue from "./PlanetData";
 
 // Fetch planet data
 async function fetchPlanetData(dataID) {
@@ -109,9 +80,7 @@ function WikiExcerpt({ planet }) {
   );
 }
 
-export default function PlanetDetails() {
-  const [currentPlanet, setCurrentPlanet] = useState("mercury");
-
+export default function PlanetDetails({ currentPlanet, setCurrentPlanet }) {
   const { planetName, stinger, previousPlanet, nextPlanet } =
     planetCatalogue[currentPlanet];
 
