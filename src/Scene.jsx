@@ -92,6 +92,7 @@ const Scene = ({ currentPlanet }) => {
       <CameraController
         cameraPosition={cameraPosition}
         planetPosition={planetPosition}
+        orbitControlsRef={orbitControlsRef}
       />
 
       {/* Basic Lighting */}
