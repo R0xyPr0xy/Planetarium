@@ -6,7 +6,7 @@ const planetCatalogue = {
     dataID: "Q308",
     previousPlanet: "sun",
     nextPlanet: "earth",
-    position: "1800",
+    position: [1800, 0, 0],
     cameraDist: "1200",
   },
   earth: {
@@ -16,7 +16,7 @@ const planetCatalogue = {
     dataID: "Q2",
     previousPlanet: "mercury",
     nextPlanet: "sun",
-    position: "2800",
+    position: [2800, 0, 0],
     cameraDist: "1200",
   },
   sun: {
@@ -26,8 +26,8 @@ const planetCatalogue = {
     dataID: "Q525",
     previousPlanet: "earth",
     nextPlanet: "mercury",
-    position: "0",
-    cameraDist: "1800",
+    position: [0, 0, 0],
+    cameraDist: "2700",
   },
 };
 

@@ -1,24 +1,16 @@
 import React from "react";
 import Scene from "./Scene";
 import PlanetDetails from "./PlanetDetail";
-import planetCatalogue from "./PlanetData";
 import { useState } from "react";
 
 function App() {
-  const [currentPlanet, setCurrentPlanet] = useState("mercury");
-
-  // Get camera position dynamically
-  const cameraPosition = [
-    planetCatalogue[currentPlanet].position,
-    0,
-    planetCatalogue[currentPlanet].cameraDist,
-  ];
+  const [currentPlanet, setCurrentPlanet] = useState("sun");
 
   return (
     <div style={{ width: "100vw", height: "100vh", display: "flex" }}>
       {/* Three.js Canvas */}
       <div id="canvas-container">
-        <Scene cameraPosition={cameraPosition} />
+        <Scene currentPlanet={currentPlanet} />
       </div>
 
       {/* React Logic for Planet Details */}

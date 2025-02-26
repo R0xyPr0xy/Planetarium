@@ -5,7 +5,29 @@ import { useRef } from "react";
 import CameraController from "./CameraController";
 import planetCatalogue from "./PlanetData";
 
-const Planet = () => {
+const Sun = () => {
+  const gltf = useLoader(GLTFLoader, "/3D-assets/sun.glb");
+  const planetRef = useRef();
+
+  useFrame(() => {
+    if (planetRef.current) {
+      planetRef.current.rotation.x += 0.0002;
+      planetRef.current.rotation.y += 0.0002;
+    }
+  });
+
+  return (
+    <primitive
+      object={gltf.scene}
+      ref={planetRef}
+      scale={[100, 100, 100]}
+      position={[0, 0, 0]}
+      rotation={[0, Math.PI, 0]}
+    />
+  );
+};
+
+const Mercury = () => {
   const gltf = useLoader(GLTFLoader, "/3D-assets/mercury.glb");
   const planetRef = useRef();
 
@@ -21,29 +43,29 @@ const Planet = () => {
       object={gltf.scene}
       ref={planetRef}
       scale={[1, 1, 1]}
-      position={[0, 0, 0]}
+      position={[2800, 0, 0]}
       rotation={[20, Math.PI, 0]}
     />
   );
 };
 
-const PlanetTest = () => {
+const Earth = () => {
   const gltf = useLoader(GLTFLoader, "/3D-assets/earth.glb");
-  const planetTestRef = useRef();
+  const planetRef = useRef();
 
   useFrame(() => {
-    if (planetTestRef.current) {
-      planetTestRef.current.rotation.x += 0.0002;
-      planetTestRef.current.rotation.y += 0.0002;
+    if (planetRef.current) {
+      planetRef.current.rotation.x += 0.0002;
+      planetRef.current.rotation.y += 0.0002;
     }
   });
 
   return (
     <primitive
       object={gltf.scene}
-      ref={planetTestRef}
+      ref={planetRef}
       scale={[1, 1, 1]}
-      position={[2800, 0, 0]}
+      position={[5200, 0, 0]}
       rotation={[20, Math.PI, 0]}
     />
   );
@@ -52,16 +74,25 @@ const PlanetTest = () => {
 const Planets = () => {
   return (
     <>
-      <Planet />
-      <PlanetTest />
+      <Sun />
+      <Mercury />
+      <Earth />
     </>
   );
 };
 
-const Scene = ({ cameraPosition }) => {
+const Scene = ({ currentPlanet }) => {
+  // Get camera position dynamically
+  const cameraPosition = [0, 0, planetCatalogue[currentPlanet].cameraDist];
+  const planetPosition = planetCatalogue[currentPlanet].position;
+  const orbitControlsRef = useRef();
+
   return (
     <Canvas camera={{ position: [0, 0, 1200], near: 0.01, far: 100000 }}>
-      <CameraController cameraPosition={cameraPosition} />
+      <CameraController
+        cameraPosition={cameraPosition}
+        planetPosition={planetPosition}
+      />
 
       {/* Basic Lighting */}
       <ambientLight intensity={0.5} />
@@ -71,7 +102,7 @@ const Scene = ({ cameraPosition }) => {
       <Planets />
 
       {/* Controls */}
-      <OrbitControls />
+      <OrbitControls ref={orbitControlsRef} />
     </Canvas>
   );
 };
