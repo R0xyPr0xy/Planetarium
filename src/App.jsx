@@ -6,24 +6,32 @@ import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
 
 function App() {
   const [currentPlanet, setCurrentPlanet] = useState("sun");
-  const [shoowSidebar, setShwoSidebar] = useState("true");
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const toggleShowSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
 
   return (
     <div className="planet-app">
       {/* Three.js Canvas */}
-      <div className="planet-scene">
+      <div
+        className="planet-scene"
+        style={{ width: showSidebar ? "45vw" : "100vw" }}
+      >
         <Scene currentPlanet={currentPlanet} />
-        <SidebarVisibilityButton />
+        <SidebarVisibilityButton onClick={toggleShowSidebar} />
       </div>
 
       {/* React Logic for Planet Details */}
-
-      <div className="planet-sidebar">
-        <PlanetDetails
-          currentPlanet={currentPlanet}
-          setCurrentPlanet={setCurrentPlanet}
-        />
-      </div>
+      {showSidebar && (
+        <div className="planet-sidebar" style={{ width: "55vw" }}>
+          <PlanetDetails
+            currentPlanet={currentPlanet}
+            setCurrentPlanet={setCurrentPlanet}
+          />
+        </div>
+      )}
     </div>
   );
 }
