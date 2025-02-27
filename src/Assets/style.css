@@ -39,9 +39,24 @@ p {
   font-family: Verdana, sans-serif;
 }
 
-#canvas-container {
+.planet-app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: black;
+}
+
+.planet-scene {
   width: 45vw;
   height: 100vh;
+  position: relative;
+}
+
+.planet-sidebar {
+  flex: 1;
+  padding: 20px;
+  background: #222;
+  color: white;
 }
 
 .planet-info {
@@ -51,6 +66,18 @@ p {
     color: rgb(158, 158, 158);
     text-align: left;
     font-family: Verdana, sans-serif;
+  }
+}
+
+.sidebar-visibility-button {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  width: 50px;
+
+  .arrow-icon {
+    max-width: 100%;
+    display: block;
   }
 }
 

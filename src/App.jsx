@@ -2,28 +2,23 @@ import React from "react";
 import Scene from "./Scene";
 import PlanetDetails from "./PlanetDetail";
 import { useState } from "react";
+import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
 
 function App() {
   const [currentPlanet, setCurrentPlanet] = useState("sun");
+  const [shoowSidebar, setShwoSidebar] = useState("true");
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        background: "black",
-      }}
-    >
+    <div className="planet-app">
       {/* Three.js Canvas */}
-      <div id="canvas-container">
+      <div className="planet-scene">
         <Scene currentPlanet={currentPlanet} />
+        <SidebarVisibilityButton />
       </div>
 
       {/* React Logic for Planet Details */}
-      <div
-        style={{ flex: 1, padding: "20px", background: "#222", color: "white" }}
-      >
+
+      <div className="planet-sidebar">
         <PlanetDetails
           currentPlanet={currentPlanet}
           setCurrentPlanet={setCurrentPlanet}
