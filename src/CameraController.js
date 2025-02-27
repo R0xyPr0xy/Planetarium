@@ -8,6 +8,7 @@ function CameraController({
 }) {
   const { camera, invalidate } = useThree();
 
+  // Changes the camera view based on focus
   useEffect(() => {
     camera.position.set(...cameraPosition);
     camera.lookAt(planetPosition);

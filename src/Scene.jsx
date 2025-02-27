@@ -1,85 +1,9 @@
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useRef } from "react";
 import CameraController from "./CameraController";
 import planetCatalogue from "./PlanetData";
-
-const Sun = () => {
-  const gltf = useLoader(GLTFLoader, "/3D-assets/sun.glb");
-  const planetRef = useRef();
-
-  useFrame(() => {
-    if (planetRef.current) {
-      planetRef.current.rotation.x += 0.0002;
-      planetRef.current.rotation.y += 0.0002;
-    }
-  });
-
-  return (
-    <primitive
-      object={gltf.scene}
-      ref={planetRef}
-      scale={[100, 100, 100]}
-      position={[0, 0, 0]}
-      rotation={[0, Math.PI, 0]}
-    />
-  );
-};
-
-const Mercury = () => {
-  const gltf = useLoader(GLTFLoader, "/3D-assets/mercury.glb");
-  const planetRef = useRef();
-
-  useFrame(() => {
-    if (planetRef.current) {
-      planetRef.current.rotation.x += 0.0002;
-      planetRef.current.rotation.y += 0.0002;
-    }
-  });
-
-  return (
-    <primitive
-      object={gltf.scene}
-      ref={planetRef}
-      scale={[1, 1, 1]}
-      position={[2800, 0, 0]}
-      rotation={[20, Math.PI, 0]}
-    />
-  );
-};
-
-const Earth = () => {
-  const gltf = useLoader(GLTFLoader, "/3D-assets/earth.glb");
-  const planetRef = useRef();
-
-  useFrame(() => {
-    if (planetRef.current) {
-      planetRef.current.rotation.x += 0.0002;
-      planetRef.current.rotation.y += 0.0002;
-    }
-  });
-
-  return (
-    <primitive
-      object={gltf.scene}
-      ref={planetRef}
-      scale={[1, 1, 1]}
-      position={[5200, 0, 0]}
-      rotation={[20, Math.PI, 0]}
-    />
-  );
-};
-
-const Planets = () => {
-  return (
-    <>
-      <Sun />
-      <Mercury />
-      <Earth />
-    </>
-  );
-};
+import Planets from "./PlanetModels";
 
 const Scene = ({ currentPlanet }) => {
   // Get camera position dynamically
