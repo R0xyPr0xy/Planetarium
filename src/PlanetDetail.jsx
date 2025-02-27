@@ -26,7 +26,7 @@ function PlanetInfo({ planet }) {
   const [temperature, setTemperature] = useState("Loading");
   const [radius, setRadius] = useState("Loading");
 
-  const { dataID } = planetCatalogue[planet];
+  const { dataID, showDistance } = planetCatalogue[planet];
 
   useEffect(
     function () {
@@ -41,9 +41,13 @@ function PlanetInfo({ planet }) {
 
   return (
     <div className="planet-info">
-      <p className="earth-distance">
-        Distance to Earth : <span className="highlighted">{distance} km </span>
-      </p>
+      {showDistance && (
+        <p className="earth-distance">
+          Distance to Earth :{" "}
+          <span className="highlighted">{distance} km </span>
+        </p>
+      )}
+      {}
       <p className="temperature">
         Temperature : <span className="highlighted">{temperature} kelvin </span>
       </p>

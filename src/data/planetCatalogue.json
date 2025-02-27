@@ -4,6 +4,7 @@
     "stinger": "Nearest planet to the Sun",
     "wikiPage": "Mercury_(planet)",
     "dataID": "Q308",
+    "showDistance": true,
     "previousPlanet": "sun",
     "nextPlanet": "earth",
     "position": [2800, 0, 0],
