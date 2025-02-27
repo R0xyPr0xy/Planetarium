@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import planetCatalogue from "./PlanetData";
+import planetCatalogue from "./data/planetCatalogue";
 
 // Fetch planet data
 async function fetchPlanetData(dataID) {

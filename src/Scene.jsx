@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import CameraController from "./CameraController";
-import planetCatalogue from "./PlanetData";
+import planetCatalogue from "./data/planetCatalogue";
 import Planets from "./PlanetModels";
 
 const Scene = ({ currentPlanet }) => {

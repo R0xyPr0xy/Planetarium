@@ -7,7 +7,14 @@ function App() {
   const [currentPlanet, setCurrentPlanet] = useState("sun");
 
   return (
-    <div style={{ width: "100vw", height: "100vh", display: "flex" }}>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        background: "black",
+      }}
+    >
       {/* Three.js Canvas */}
       <div id="canvas-container">
         <Scene currentPlanet={currentPlanet} />
@@ -22,8 +29,6 @@ function App() {
           setCurrentPlanet={setCurrentPlanet}
         />
       </div>
-
-      <div id="bckgrnd"></div>
     </div>
   );
 }
