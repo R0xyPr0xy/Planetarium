@@ -70,9 +70,16 @@ p {
 
 .sidebar-visibility-button {
   position: absolute;
-  top: 30%;
+  top: 3%;
   right: 0;
   width: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #222;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: none;
   cursor: pointer;
 
   .arrow-icon {
@@ -91,6 +98,7 @@ p {
   border-radius: 15px;
   overflow-y: auto;
   text-align: center;
+  max-height: 93vh;
 }
 
 .wiki-excerpt {

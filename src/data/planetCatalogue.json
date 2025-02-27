@@ -8,7 +8,7 @@
     "previousPlanet": "sun",
     "nextPlanet": "earth",
     "position": [2800, 0, 0],
-    "cameraDist": "1200"
+    "cameraDist": "3800"
   },
   "earth": {
     "planetName": "Earth",
@@ -18,7 +18,7 @@
     "previousPlanet": "mercury",
     "nextPlanet": "sun",
     "position": [5200, 0, 0],
-    "cameraDist": "1200"
+    "cameraDist": "3800"
   },
   "sun": {
     "planetName": "Sun",
@@ -28,6 +28,6 @@
     "previousPlanet": "earth",
     "nextPlanet": "mercury",
     "position": [0, 0, 0],
-    "cameraDist": "2700"
+    "cameraDist": "5800"
   }
 }

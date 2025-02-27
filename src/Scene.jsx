@@ -15,7 +15,14 @@ const Scene = ({ currentPlanet }) => {
   const orbitControlsRef = useRef();
 
   return (
-    <Canvas camera={{ position: [0, 0, 1200], near: 0.01, far: 100000 }}>
+    <Canvas
+      camera={{
+        position: [0, 0, cameraDist],
+        near: 0.01,
+        far: 100000,
+        fov: 25,
+      }}
+    >
       <CameraController
         cameraPosition={cameraPosition}
         planetPosition={planetPosition}
