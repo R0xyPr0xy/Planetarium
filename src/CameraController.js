@@ -11,7 +11,7 @@ function CameraController({
   // Changes the camera view based on focus
   useEffect(() => {
     camera.position.set(...cameraPosition);
-    camera.lookAt(planetPosition);
+
     orbitControlsRef.current.target.set(...planetPosition);
     orbitControlsRef.current.update();
     invalidate();

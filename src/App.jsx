@@ -19,7 +19,10 @@ function App() {
         className="planet-scene"
         style={{ width: showSidebar ? "45vw" : "100vw" }}
       >
-        <Scene currentPlanet={currentPlanet} />
+        <Scene
+          currentPlanet={currentPlanet}
+          setCurrentPlanet={setCurrentPlanet}
+        />
         <SidebarVisibilityButton onClick={toggleShowSidebar} />
       </div>
 

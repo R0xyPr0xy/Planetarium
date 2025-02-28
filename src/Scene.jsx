@@ -4,8 +4,9 @@ import { useRef } from "react";
 import CameraController from "./CameraController";
 import planetCatalogue from "./data/planetCatalogue";
 import Planets from "./PlanetModels";
+import RaycastHandler from "./components/RaycastHandler.jsx";
 
-const Scene = ({ currentPlanet }) => {
+const Scene = ({ currentPlanet, setCurrentPlanet }) => {
   // Get camera position dynamically
   const planetPosition = planetCatalogue[currentPlanet].position;
   const cameraDist = planetCatalogue[currentPlanet].cameraDist;
@@ -23,6 +24,8 @@ const Scene = ({ currentPlanet }) => {
         fov: 25,
       }}
     >
+      <RaycastHandler setCurrentPlanet={setCurrentPlanet} />
+
       <CameraController
         cameraPosition={cameraPosition}
         planetPosition={planetPosition}
