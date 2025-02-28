@@ -22,6 +22,7 @@ function App() {
         <Scene
           currentPlanet={currentPlanet}
           setCurrentPlanet={setCurrentPlanet}
+          showSidebar={showSidebar}
         />
         <SidebarVisibilityButton onClick={toggleShowSidebar} />
       </div>

@@ -3,13 +3,14 @@ import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 
 const RaycastHandler = ({ setCurrentPlanet }) => {
-  const { camera, scene } = useThree();
+  const { camera, scene, size } = useThree();
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
 
   const onMouseDown = (event) => {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    // Pointer is based on canvas size
+    pointer.x = (event.clientX / size.width) * 2 - 1;
+    pointer.y = -(event.clientY / size.height) * 2 + 1;
 
     raycaster.setFromCamera(pointer, camera);
     const intersects = raycaster.intersectObjects(scene.children, true);
@@ -33,7 +34,7 @@ const RaycastHandler = ({ setCurrentPlanet }) => {
   useEffect(() => {
     window.addEventListener("mousedown", onMouseDown);
     return () => window.removeEventListener("mousedown", onMouseDown);
-  }, []);
+  }, [size]);
 
   return null;
 };
