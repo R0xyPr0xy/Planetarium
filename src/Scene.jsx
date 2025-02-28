@@ -6,12 +6,14 @@ import planetCatalogue from "./data/planetCatalogue";
 import Planets from "./PlanetModels";
 import RaycastHandler from "./components/RaycastHandler.jsx";
 
-const Scene = ({ currentPlanet, setCurrentPlanet }) => {
-  // Get camera position dynamically
-  const planetPosition = planetCatalogue[currentPlanet].position;
+const Scene = ({
+  currentPlanet,
+  setCurrentPlanet,
+  showSidebar,
+  setShowSidebar,
+}) => {
+  // Get camera distance to planet
   const cameraDist = planetCatalogue[currentPlanet].cameraDist;
-
-  const cameraPosition = [planetPosition[0], 0, cameraDist];
 
   const orbitControlsRef = useRef();
 
@@ -24,11 +26,14 @@ const Scene = ({ currentPlanet, setCurrentPlanet }) => {
         fov: 25,
       }}
     >
-      <RaycastHandler setCurrentPlanet={setCurrentPlanet} />
+      <RaycastHandler
+        setCurrentPlanet={setCurrentPlanet}
+        setShowSidebar={setShowSidebar}
+        showSidebar={showSidebar}
+      />
 
       <CameraController
-        cameraPosition={cameraPosition}
-        planetPosition={planetPosition}
+        currentPlanet={currentPlanet}
         orbitControlsRef={orbitControlsRef}
       />
 
