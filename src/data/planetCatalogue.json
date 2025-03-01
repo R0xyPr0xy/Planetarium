@@ -1,4 +1,16 @@
 {
+  "sun": {
+    "planetName": "Sun",
+    "stinger": "The center of our system",
+    "wikiPage": "Sun",
+    "dataID": "Q525",
+    "previousPlanet": "neptune",
+    "nextPlanet": "mercury",
+    "position": [0, 0, 0],
+    "scale": [100, 100, 100],
+    "cameraDist": "5800",
+    "modelPath": "/3D-assets/sun.glb"
+  },
   "mercury": {
     "planetName": "Mercury",
     "stinger": "Nearest planet to the Sun",
@@ -6,28 +18,100 @@
     "dataID": "Q308",
     "showDistance": true,
     "previousPlanet": "sun",
+    "nextPlanet": "venus",
+    "position": [3900, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/mercury.glb"
+  },
+  "venus": {
+    "planetName": "Venus",
+    "stinger": "Second planet from the Sun",
+    "wikiPage": "Venus",
+    "dataID": "Q313",
+    "showDistance": true,
+    "previousPlanet": "mercury",
     "nextPlanet": "earth",
-    "position": [2800, 0, 0],
-    "cameraDist": "3800"
+    "position": [7200, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/venus.glb"
   },
   "earth": {
     "planetName": "Earth",
     "stinger": "Third planet from the Sun",
     "wikiPage": "Earth",
     "dataID": "Q2",
-    "previousPlanet": "mercury",
-    "nextPlanet": "sun",
-    "position": [5200, 0, 0],
-    "cameraDist": "3800"
+    "previousPlanet": "venus",
+    "nextPlanet": "mars",
+    "position": [10000, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/earth.glb"
   },
-  "sun": {
-    "planetName": "Sun",
-    "stinger": "The center of our system",
-    "wikiPage": "Sun",
-    "dataID": "Q525",
+  "mars": {
+    "planetName": "Mars",
+    "stinger": "Fourth planet from the Sun",
+    "wikiPage": "Mars",
+    "dataID": "Q111",
+    "showDistance": true,
     "previousPlanet": "earth",
-    "nextPlanet": "mercury",
-    "position": [0, 0, 0],
-    "cameraDist": "5800"
+    "nextPlanet": "jupiter",
+    "position": [15200, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/mars.glb"
+  },
+  "jupiter": {
+    "planetName": "Jupiter",
+    "stinger": "Fifth planet from the Sun",
+    "wikiPage": "Jupiter",
+    "dataID": "Q319",
+    "showDistance": true,
+    "previousPlanet": "mars",
+    "nextPlanet": "saturn",
+    "position": [52000, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "5800",
+    "modelPath": "/3D-assets/jupiter.glb"
+  },
+  "saturn": {
+    "planetName": "Saturn",
+    "stinger": "Sixth planet from the Sun",
+    "wikiPage": "Saturn",
+    "dataID": "Q193",
+    "showDistance": true,
+    "previousPlanet": "jupiter",
+    "nextPlanet": "uranus",
+    "position": [95400, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/saturn.glb"
+  },
+  "uranus": {
+    "planetName": "Uranus",
+    "stinger": "Seventh planet from the Sun",
+    "wikiPage": "Uranus",
+    "dataID": "Q324",
+    "showDistance": true,
+    "previousPlanet": "saturn",
+    "nextPlanet": "neptune",
+    "position": [192200, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/uranus.glb"
+  },
+  "neptune": {
+    "planetName": "Neptune",
+    "stinger": "Farthest planet from the Sun",
+    "wikiPage": "Neptune",
+    "dataID": "Q332",
+    "showDistance": true,
+    "previousPlanet": "uranus",
+    "nextPlanet": "sun",
+    "position": [300600, 0, 0],
+    "scale": [1, 1, 1],
+    "cameraDist": "3800",
+    "modelPath": "/3D-assets/neptune.glb"
   }
 }

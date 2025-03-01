@@ -21,43 +21,6 @@ async function fetchExcerpt(wikiPage) {
   return excerpt.extract;
 }
 
-function PlanetInfo({ planet }) {
-  const [distance, setDistance] = useState("Loading");
-  const [temperature, setTemperature] = useState("Loading");
-  const [radius, setRadius] = useState("Loading");
-
-  const { dataID, showDistance } = planetCatalogue[planet];
-
-  useEffect(
-    function () {
-      fetchPlanetData(dataID).then(({ claims }) => {
-        setDistance(claims.P2583[0].mainsnak.datavalue.value.amount);
-        setTemperature(claims.P2076[0].mainsnak.datavalue.value.amount);
-        setRadius(claims.P2120[0].mainsnak.datavalue.value.amount);
-      });
-    },
-    [planet]
-  );
-
-  return (
-    <div className="planet-info">
-      {showDistance && (
-        <p className="earth-distance">
-          Distance to Earth :{" "}
-          <span className="highlighted">{distance} km </span>
-        </p>
-      )}
-      {}
-      <p className="temperature">
-        Temperature : <span className="highlighted">{temperature} kelvin </span>
-      </p>
-      <p className="radius">
-        Radius : <span className="highlighted">{radius} km </span>
-      </p>
-    </div>
-  );
-}
-
 function WikiExcerpt({ planet }) {
   const [excerpt, setExcerpt] = useState("Loading");
 
@@ -80,6 +43,49 @@ function WikiExcerpt({ planet }) {
       <span className="highlighted">
         {excerpt || "No excerpt available"} — Wikipedia
       </span>
+    </div>
+  );
+}
+
+function PlanetInfo({ planet }) {
+  const [distance, setDistance] = useState("Loading");
+  const [temperature, setTemperature] = useState("Loading");
+  const [radius, setRadius] = useState("Loading");
+
+  const { dataID, showDistance, showTemperature } = planetCatalogue[planet];
+
+  useEffect(
+    function () {
+      fetchPlanetData(dataID).then(({ claims }) => {
+        setDistance(
+          claims?.P2583?.[0]?.mainsnak?.datavalue?.value?.amount ?? "N/A"
+        );
+        setTemperature(
+          claims?.P2076?.[0]?.mainsnak?.datavalue?.value?.amount ?? "N/A"
+        );
+        setRadius(
+          claims?.P2120?.[0]?.mainsnak?.datavalue?.value?.amount ?? "N/A"
+        );
+      });
+    },
+    [planet]
+  );
+
+  return (
+    <div className="planet-info">
+      {showDistance && (
+        <p className="earth-distance">
+          Distance to Earth :{" "}
+          <span className="highlighted">{distance} km </span>
+        </p>
+      )}
+      {}
+      <p className="temperature">
+        Temperature : <span className="highlighted">{temperature} kelvin </span>
+      </p>
+      <p className="radius">
+        Radius : <span className="highlighted">{radius} km </span>
+      </p>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import planetCatalogue from "./data/planetCatalogue";
 import * as THREE from "three";
 
 function CameraController({ orbitControlsRef, currentPlanet }) {
-  const { camera, invalidate } = useThree();
+  const { camera } = useThree();
 
   // Get current planet camera
   const planetPosition = planetCatalogue[currentPlanet].position;
