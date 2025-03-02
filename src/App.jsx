@@ -3,6 +3,7 @@ import Scene from "./Scene";
 import PlanetDetails from "./PlanetDetail";
 import { useState } from "react";
 import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [currentPlanet, setCurrentPlanet] = useState("sun");
@@ -15,9 +16,10 @@ function App() {
   return (
     <div className="planet-app">
       {/* Three.js Canvas */}
-      <div
+      <motion.div
         className="planet-scene"
-        style={{ width: showSidebar ? "45vw" : "100vw" }}
+        animate={{ width: showSidebar ? "45vw" : "100vw" }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <Scene
           currentPlanet={currentPlanet}
@@ -26,17 +28,25 @@ function App() {
           showSidebar={showSidebar}
         />
         <SidebarVisibilityButton onClick={toggleShowSidebar} />
-      </div>
+      </motion.div>
 
       {/* React Logic for Planet Details */}
-      {showSidebar && (
-        <div className="planet-sidebar" style={{ width: "55vw" }}>
-          <PlanetDetails
-            currentPlanet={currentPlanet}
-            setCurrentPlanet={setCurrentPlanet}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showSidebar && (
+          <motion.div
+            className="planet-sidebar"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <PlanetDetails
+              currentPlanet={currentPlanet}
+              setCurrentPlanet={setCurrentPlanet}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

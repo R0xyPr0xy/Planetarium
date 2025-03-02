@@ -2,7 +2,12 @@ import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 
-const RaycastHandler = ({ setCurrentPlanet, setShowSidebar, showSidebar }) => {
+const RaycastHandler = ({
+  currentPlanet,
+  setCurrentPlanet,
+  setShowSidebar,
+  showSidebar,
+}) => {
   const { camera, scene, size } = useThree();
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
@@ -24,8 +29,13 @@ const RaycastHandler = ({ setCurrentPlanet, setShowSidebar, showSidebar }) => {
         planetObj = planetObj.parent;
       }
 
-      if (planetObj.userData.planetName) {
-        setCurrentPlanet(planetObj.userData.planetName);
+      let newPlanet = planetObj.userData.planetName;
+
+      if (newPlanet) {
+        if (!showSidebar && newPlanet != currentPlanet) {
+          setShowSidebar(true);
+        }
+        setCurrentPlanet(newPlanet);
       }
     }
   };

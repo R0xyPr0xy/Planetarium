@@ -4,7 +4,6 @@ import { useRef } from "react";
 import CameraController from "./CameraController";
 import RaycastHandler from "./components/RaycastHandler.jsx";
 import planetCatalogue from "./data/planetCatalogue";
-// import PlanetsModels from "./PlanetModels";
 import PlanetLoader from "./components/PlanetLoader";
 
 const Scene = ({
@@ -22,12 +21,13 @@ const Scene = ({
     <Canvas
       camera={{
         position: [0, 0, cameraDist],
-        near: 0.1,
+        near: 1,
         far: 1000000,
         fov: 25,
       }}
     >
       <RaycastHandler
+        currentPlanet={currentPlanet}
         setCurrentPlanet={setCurrentPlanet}
         setShowSidebar={setShowSidebar}
         showSidebar={showSidebar}

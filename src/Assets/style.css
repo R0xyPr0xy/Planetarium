@@ -44,6 +44,7 @@ p {
   height: 100vh;
   display: flex;
   background: black;
+  overflow: hidden;
 }
 
 .planet-scene {
@@ -53,6 +54,7 @@ p {
 
 .planet-sidebar {
   flex-grow: 1;
+  width: 55vw;
   padding: 20px;
   background: #222;
   color: white;
