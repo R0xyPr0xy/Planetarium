@@ -103,6 +103,7 @@ p {
   border-bottom-left-radius: 8px;
   border: none;
   cursor: pointer;
+  padding: 5px;
 
   .galaxy-icon {
     max-width: 100%;
