@@ -90,6 +90,26 @@ p {
   }
 }
 
+.galaxy-view-button {
+  position: absolute;
+  top: 3%;
+  right: 0;
+  width: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #222;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  .galaxy-icon {
+    max-width: 100%;
+    display: block;
+  }
+}
+
 .highlighted {
   color: rgb(255, 255, 255);
 }

@@ -11,6 +11,8 @@ const Scene = ({
   setCurrentPlanet,
   showSidebar,
   setShowSidebar,
+  galaxyView,
+  setGalaxyView,
 }) => {
   // Get camera distance to planet
   const cameraDist = planetCatalogue[currentPlanet].cameraDist;
@@ -31,11 +33,13 @@ const Scene = ({
         setCurrentPlanet={setCurrentPlanet}
         setShowSidebar={setShowSidebar}
         showSidebar={showSidebar}
+        setGalaxyView={setGalaxyView}
       />
 
       <CameraController
         currentPlanet={currentPlanet}
         orbitControlsRef={orbitControlsRef}
+        galaxyView={galaxyView}
       />
 
       {/* Basic Lighting */}

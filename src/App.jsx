@@ -1,16 +1,22 @@
 import React from "react";
 import Scene from "./Scene";
-import PlanetDetails from "./PlanetDetail";
 import { useState } from "react";
-import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
 import { motion, AnimatePresence } from "framer-motion";
+import PlanetDetails from "./PlanetDetail";
+import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
+import GalaxyViewButton from "./components/GalaxyViewButton";
 
 function App() {
   const [currentPlanet, setCurrentPlanet] = useState("sun");
   const [showSidebar, setShowSidebar] = useState(true);
+  const [galaxyView, setGalaxyView] = useState(false);
 
   const toggleShowSidebar = () => {
     setShowSidebar(!showSidebar);
+  };
+
+  const toggleGalaxyView = () => {
+    setGalaxyView(!galaxyView);
   };
 
   return (
@@ -26,7 +32,10 @@ function App() {
           setCurrentPlanet={setCurrentPlanet}
           setShowSidebar={setShowSidebar}
           showSidebar={showSidebar}
+          galaxyView={galaxyView}
+          setGalaxyView={setGalaxyView}
         />
+        <GalaxyViewButton onClick={toggleGalaxyView} />
         <SidebarVisibilityButton onClick={toggleShowSidebar} />
       </motion.div>
 

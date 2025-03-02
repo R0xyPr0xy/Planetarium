@@ -7,6 +7,7 @@ const RaycastHandler = ({
   setCurrentPlanet,
   setShowSidebar,
   showSidebar,
+  setGalaxyView,
 }) => {
   const { camera, scene, size } = useThree();
   const raycaster = new THREE.Raycaster();
@@ -14,6 +15,8 @@ const RaycastHandler = ({
 
   // Single click
   const onObjectClicked = (event) => {
+    console.log(camera.position);
+
     // Pointer is based on canvas size
     pointer.x = (event.clientX / size.width) * 2 - 1;
     pointer.y = -(event.clientY / size.height) * 2 + 1;
@@ -35,6 +38,7 @@ const RaycastHandler = ({
         if (!showSidebar && newPlanet != currentPlanet) {
           setShowSidebar(true);
         }
+        setGalaxyView(false);
         setCurrentPlanet(newPlanet);
       }
     }
