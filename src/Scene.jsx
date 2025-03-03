@@ -25,7 +25,7 @@ const Scene = ({
       camera={{
         position: [0, 0, cameraDist],
         near: 100,
-        far: 1500000,
+        far: 2000000,
         fov: 25,
       }}
     >
@@ -48,7 +48,7 @@ const Scene = ({
       <directionalLight position={[10, 10, 5]} intensity={1.7} />
 
       {/* Imported 3D Model */}
-      <PlanetLoader />
+      <PlanetLoader currentPlanet={currentPlanet} />
 
       {galaxyView && <OrbitLines />}
 

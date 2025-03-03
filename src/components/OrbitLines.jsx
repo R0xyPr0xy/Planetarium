@@ -10,7 +10,6 @@ const OrbitLines = () => {
         const radius = Math.abs(planet.position[0]);
         const segments = 64;
 
-        // Create circle geometry (not a solid mesh, just an outline)
         const geometry = new THREE.CircleGeometry(radius, segments);
         const edges = new THREE.EdgesGeometry(geometry);
         const material = new THREE.LineBasicMaterial({ color: 0xffffff });
