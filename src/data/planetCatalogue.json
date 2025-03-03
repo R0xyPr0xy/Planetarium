@@ -72,7 +72,7 @@
     "nextPlanet": "saturn",
     "position": [52000, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "5800",
+    "cameraDist": "3800",
     "modelPath": "/3D-assets/jupiter.glb"
   },
   "saturn": {

@@ -5,6 +5,7 @@ import CameraController from "./CameraController";
 import RaycastHandler from "./components/RaycastHandler.jsx";
 import planetCatalogue from "./data/planetCatalogue";
 import PlanetLoader from "./components/PlanetLoader";
+import OrbitLines from "./components/OrbitLines";
 
 const Scene = ({
   currentPlanet,
@@ -23,8 +24,8 @@ const Scene = ({
     <Canvas
       camera={{
         position: [0, 0, cameraDist],
-        near: 1,
-        far: 1000000,
+        near: 100,
+        far: 1500000,
         fov: 25,
       }}
     >
@@ -48,6 +49,8 @@ const Scene = ({
 
       {/* Imported 3D Model */}
       <PlanetLoader />
+
+      {galaxyView && <OrbitLines />}
 
       {/* Controls */}
       <OrbitControls ref={orbitControlsRef} />

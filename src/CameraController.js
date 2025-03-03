@@ -12,7 +12,7 @@ function CameraController({ orbitControlsRef, currentPlanet, galaxyView }) {
   const planetCameraPos = new THREE.Vector3(planetPosition[0], 0, cameraDist);
 
   const galaxyCameraPos = new THREE.Vector3(-79983, 15415, 18007);
-  const galaxyTargetPos = new THREE.Vector3(0, 0, 0); // Center of the galaxy
+  const galaxyTargetPos = new THREE.Vector3(0, 0, 0);
 
   // Track the previous camera position
   const prevCameraPos = useRef(new THREE.Vector3());
