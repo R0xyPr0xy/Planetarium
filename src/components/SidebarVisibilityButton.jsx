@@ -1,4 +1,4 @@
-import forwardArrowIcon from "../Assets/forward-arrow-icon.png";
+import forwardArrowIcon from "../assets/forward-arrow-icon.png";
 export default function SidebarVisibilityButton({ onClick }) {
   return (
     <button className="sidebar-visibility-button" onClick={onClick}>

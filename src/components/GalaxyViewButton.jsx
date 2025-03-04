@@ -1,4 +1,4 @@
-import galaxyIcon from "../Assets/galaxy-icon.png";
+import galaxyIcon from "../assets/galaxy-icon.png";
 export default function GalaxyViewButton({ onClick }) {
   return (
     <button className="galaxy-view-button" onClick={onClick}>
