@@ -26,7 +26,7 @@ const Scene = ({
       camera={{
         position: [0, 0, cameraDist],
         near: 100,
-        far: 2000000,
+        far: 10000000,
         fov: 25,
       }}
     >
@@ -46,7 +46,7 @@ const Scene = ({
 
       {/* Basic Lighting */}
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1.7} />
+      <directionalLight position={[-10, 5, 5]} intensity={1.7} />
 
       {/* Imported 3D Model */}
       <PlanetLoader currentPlanet={currentPlanet} />

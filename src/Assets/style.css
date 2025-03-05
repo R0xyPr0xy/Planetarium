@@ -83,6 +83,8 @@ p {
   border-bottom-left-radius: 8px;
   border: none;
   cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   .arrow-icon {
     max-width: 100%;

@@ -27,7 +27,7 @@ function createMaterialArray(filename) {
 const Skybox = () => {
   const skyboxImage = "skybox"; // Sourced from opengameart.org | Author: NoLogoGames
   const materialArray = createMaterialArray(skyboxImage);
-  const skyboxGeo = new THREE.BoxGeometry(1000000, 1000000, 1000000);
+  const skyboxGeo = new THREE.BoxGeometry(10000000, 10000000, 10000000);
   const skybox = new THREE.Mesh(skyboxGeo, materialArray);
 
   const skyRef = useRef();
