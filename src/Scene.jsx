@@ -2,10 +2,11 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import CameraController from "./CameraController";
-import RaycastHandler from "./components/RaycastHandler.jsx";
+import RaycastHandler from "./components/RaycastHandler";
 import planetCatalogue from "./data/planetCatalogue";
 import PlanetLoader from "./components/PlanetLoader";
 import OrbitLines from "./components/OrbitLines";
+import Skybox from "./components/Skybox";
 
 const Scene = ({
   currentPlanet,
@@ -51,6 +52,8 @@ const Scene = ({
       <PlanetLoader currentPlanet={currentPlanet} />
 
       {galaxyView && <OrbitLines />}
+
+      <Skybox />
 
       {/* Controls */}
       <OrbitControls ref={orbitControlsRef} />
