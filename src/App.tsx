@@ -1,13 +1,16 @@
-import React from "react";
 import Scene from "./Scene";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// @ts-ignore
 import PlanetDetails from "./PlanetDetail";
+// @ts-ignore
 import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
+// @ts-ignore
 import GalaxyViewButton from "./components/GalaxyViewButton";
+import { Planet } from "./types";
 
 function App() {
-  const [currentPlanet, setCurrentPlanet] = useState("sun");
+  const [currentPlanet, setCurrentPlanet] = useState<Planet>("sun");
   const [showSidebar, setShowSidebar] = useState(true);
   const [galaxyView, setGalaxyView] = useState(false);
 

@@ -8,7 +8,7 @@
     "nextPlanet": "mercury",
     "position": [0, 0, 0],
     "scale": [100, 100, 100],
-    "cameraDist": "5800",
+    "cameraDist": 5800,
     "modelPath": "/3D-assets/sun.glb"
   },
   "mercury": {
@@ -21,7 +21,7 @@
     "nextPlanet": "venus",
     "position": [3900, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/mercury.glb"
   },
   "venus": {
@@ -34,7 +34,7 @@
     "nextPlanet": "earth",
     "position": [7200, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/venus.glb"
   },
   "earth": {
@@ -46,7 +46,7 @@
     "nextPlanet": "mars",
     "position": [10000, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/earth.glb"
   },
   "mars": {
@@ -59,7 +59,7 @@
     "nextPlanet": "jupiter",
     "position": [15200, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/mars.glb"
   },
   "jupiter": {
@@ -72,7 +72,7 @@
     "nextPlanet": "saturn",
     "position": [52000, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/jupiter.glb"
   },
   "saturn": {
@@ -85,7 +85,7 @@
     "nextPlanet": "uranus",
     "position": [95400, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/saturn.glb"
   },
   "uranus": {
@@ -98,7 +98,7 @@
     "nextPlanet": "neptune",
     "position": [192200, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/uranus.glb"
   },
   "neptune": {
@@ -111,7 +111,7 @@
     "nextPlanet": "sun",
     "position": [300600, 0, 0],
     "scale": [1, 1, 1],
-    "cameraDist": "3800",
+    "cameraDist": 3800,
     "modelPath": "/3D-assets/neptune.glb"
   }
 }

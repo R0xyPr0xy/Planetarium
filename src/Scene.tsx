@@ -1,25 +1,41 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
+// @ts-ignore
 import CameraController from "./CameraController";
+// @ts-ignore
 import RaycastHandler from "./components/RaycastHandler";
-import planetCatalogue from "./data/planetCatalogue";
+import planetCatalogue from "./data/planetCatalogue.json";
+// @ts-ignore
 import PlanetLoader from "./components/PlanetLoader";
+// @ts-ignore
 import OrbitLines from "./components/OrbitLines";
+// @ts-ignore
 import Skybox from "./components/Skybox";
+import { Planet } from "./types";
 
-const Scene = ({
-  currentPlanet,
-  setCurrentPlanet,
-  showSidebar,
-  setShowSidebar,
-  galaxyView,
-  setGalaxyView,
-}) => {
+type SceneProps = {
+  currentPlanet: Planet;
+  setCurrentPlanet: (value: Planet) => void;
+  showSidebar: boolean;
+  setShowSidebar: (value: boolean) => void;
+  galaxyView: boolean;
+  setGalaxyView: (value: boolean) => void;
+};
+
+const Scene = (props: SceneProps) => {
+  const {
+    currentPlanet,
+    setCurrentPlanet,
+    showSidebar,
+    setShowSidebar,
+    galaxyView,
+    setGalaxyView,
+  } = props;
   // Get camera distance to planet
   const cameraDist = planetCatalogue[currentPlanet].cameraDist;
 
-  const orbitControlsRef = useRef();
+  const orbitControlsRef = useRef<any>(null);
 
   return (
     <Canvas
