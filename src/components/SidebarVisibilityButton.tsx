@@ -1,3 +1,5 @@
+import "./SidebarVisibilityButton.css";
+
 import { MouseEventHandler } from "react";
 import forwardArrowIcon from "../assets/forward-arrow-icon.png";
 

@@ -39,27 +39,6 @@ p {
   font-family: Verdana, sans-serif;
 }
 
-.planet-app {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  background: black;
-  overflow: hidden;
-}
-
-.planet-scene {
-  flex-grow: 1;
-  position: relative;
-}
-
-.planet-sidebar {
-  flex-grow: 1;
-  width: 55vw;
-  padding: 20px;
-  background: #222;
-  color: white;
-}
-
 .planet-info {
   margin-top: 40px;
   margin-left: 70px;
@@ -67,49 +46,6 @@ p {
     color: rgb(158, 158, 158);
     text-align: left;
     font-family: Verdana, sans-serif;
-  }
-}
-
-.sidebar-visibility-button {
-  position: absolute;
-  bottom: 3%;
-  right: 0;
-  width: 50px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #222;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border: none;
-  cursor: pointer;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  .arrow-icon {
-    max-width: 100%;
-    display: block;
-  }
-}
-
-.galaxy-view-button {
-  position: absolute;
-  top: 3%;
-  right: 0;
-  width: 50px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #222;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-
-  .galaxy-icon {
-    max-width: 100%;
-    display: block;
   }
 }
 
@@ -141,7 +77,7 @@ p {
 }
 
 .previous-button {
-  background-image: url("back-arrow-icon.png");
+  background-image: url("./assets/back-arrow-icon.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -165,7 +101,7 @@ p {
 }
 
 .next-button {
-  background-image: url("forward-arrow-icon.png");
+  background-image: url("./assets/forward-arrow-icon.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

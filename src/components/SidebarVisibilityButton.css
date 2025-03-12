@@ -1,0 +1,21 @@
+.sidebar-visibility-button {
+  position: absolute;
+  bottom: 3%;
+  right: 0;
+  width: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #222;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  .arrow-icon {
+    max-width: 100%;
+    display: block;
+  }
+}

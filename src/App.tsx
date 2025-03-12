@@ -1,3 +1,5 @@
+import "./App.css";
+
 import Scene from "./Scene";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

@@ -1,3 +1,5 @@
+import "./GalaxyViewButton.css";
+
 import galaxyIcon from "../assets/galaxy-icon.png";
 export default function GalaxyViewButton({ onClick }) {
   return (

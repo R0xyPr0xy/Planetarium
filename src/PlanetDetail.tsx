@@ -1,3 +1,5 @@
+import "./PlanetDetail.css";
+
 import { useEffect, useState } from "react";
 import planetCatalogueData from "./data/planetCatalogue.json";
 import { Planet, PlanetCatalogue } from "./types";
