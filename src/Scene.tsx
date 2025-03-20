@@ -6,11 +6,10 @@ import CameraController from "./CameraController";
 // @ts-ignore
 import RaycastHandler from "./components/RaycastHandler";
 import planetCatalogue from "./data/planetCatalogue.json";
-// @ts-ignore
 import PlanetLoader from "./components/PlanetLoader";
 // @ts-ignore
 import OrbitLines from "./components/OrbitLines";
-import Skybox from "./components/Skybox.tsx";
+import Skybox from "./components/Skybox";
 import { Planet } from "./types";
 
 type SceneProps = {
@@ -64,7 +63,7 @@ const Scene = (props: SceneProps) => {
       <directionalLight position={[-10, 5, 5]} intensity={1.7} />
 
       {/* Imported 3D Model */}
-      <PlanetLoader currentPlanet={currentPlanet} />
+      <PlanetLoader />
 
       {galaxyView && <OrbitLines />}
 

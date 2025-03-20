@@ -1,9 +1,8 @@
 import Scene from "./Scene";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PlanetDetails from "./PlanetDetail.tsx";
-// @ts-ignore
-import SidebarVisibilityButton from "./components/SidebarVisibilityButton.jsx";
+import PlanetDetails from "./PlanetDetail";
+import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
 // @ts-ignore
 import GalaxyViewButton from "./components/GalaxyViewButton";
 import { Planet } from "./types";

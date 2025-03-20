@@ -30,13 +30,7 @@ const Skybox = () => {
   const skyboxGeo = new THREE.BoxGeometry(10000000, 10000000, 10000000);
   const skybox = new THREE.Mesh(skyboxGeo, materialArray);
 
-  const skyRef = useRef<HTMLDivElement | null>(null);
-
-  return (
-    <>
-      <primitive object={skybox} ref={skyRef} position={[0, 0, 0]} />
-    </>
-  );
+  return <primitive object={skybox} position={[0, 0, 0]} />;
 };
 
 export default Skybox;

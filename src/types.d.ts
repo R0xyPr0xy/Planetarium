@@ -10,4 +10,4 @@ export type Planet =
   | "uranus"
   | "neptune";
 
-export type PlanetCatalogue = Record<string, PlanetData>;
+export type PlanetCatalogue = Record<string, any>;

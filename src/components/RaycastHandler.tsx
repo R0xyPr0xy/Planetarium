@@ -2,9 +2,10 @@ import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import planetCatalogue from "../data/planetCatalogue.json";
+import { Planet } from "../types";
 
-function planetCheck(objName) {
-  for (const [key, planet] of Object.entries(planetCatalogue)) {
+function planetCheck(objName: string) {
+  for (const key of Object.keys(planetCatalogue)) {
     if (key === objName) {
       return true;
     }
@@ -12,19 +13,28 @@ function planetCheck(objName) {
   return false;
 }
 
+type RaycastHandlerProps = {
+  currentPlanet: Planet;
+  setCurrentPlanet: (value: Planet) => void;
+  showSidebar: boolean;
+  setShowSidebar: (value: boolean) => void;
+  galaxyView: boolean;
+  setGalaxyView: (value: boolean) => void;
+};
+
 const RaycastHandler = ({
   currentPlanet,
   setCurrentPlanet,
   setShowSidebar,
   showSidebar,
   setGalaxyView,
-}) => {
+}: RaycastHandlerProps) => {
   const { camera, scene, size } = useThree();
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
 
   // Single click
-  const onObjectClicked = (event) => {
+  const onObjectClicked = (event: MouseEvent) => {
     // Pointer is based on canvas size
     pointer.x = (event.clientX / size.width) * 2 - 1;
     pointer.y = -(event.clientY / size.height) * 2 + 1;
@@ -34,8 +44,6 @@ const RaycastHandler = ({
 
     if (intersects.length > 0) {
       let object = intersects[0].object;
-
-      planetCheck(object);
 
       // Get root object
       while (object.parent && !object.userData.planetName) {
@@ -56,7 +64,7 @@ const RaycastHandler = ({
   };
 
   // Double click
-  const onDoubleClick = (event) => {
+  const onDoubleClick = (event: MouseEvent) => {
     // Pointer is based on canvas size
     pointer.x = (event.clientX / size.width) * 2 - 1;
     pointer.y = -(event.clientY / size.height) * 2 + 1;
