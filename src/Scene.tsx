@@ -10,8 +10,7 @@ import planetCatalogue from "./data/planetCatalogue.json";
 import PlanetLoader from "./components/PlanetLoader";
 // @ts-ignore
 import OrbitLines from "./components/OrbitLines";
-// @ts-ignore
-import Skybox from "./components/Skybox";
+import Skybox from "./components/Skybox.tsx";
 import { Planet } from "./types";
 
 type SceneProps = {

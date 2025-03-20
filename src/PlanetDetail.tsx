@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
-import planetCatalogue from "./data/planetCatalogue";
+import planetCatalogueData from "./data/planetCatalogue.json";
+import { Planet, PlanetCatalogue } from "./types";
+
+const planetCatalogue: PlanetCatalogue = planetCatalogueData as PlanetCatalogue;
+
+type PlanetDetailProps = {
+  currentPlanet: Planet;
+  setCurrentPlanet: (value: Planet) => void;
+};
+
+type PlanetProps = {
+  planet: Planet;
+};
 
 // Fetch planet data
-async function fetchPlanetData(dataID) {
+async function fetchPlanetData(dataID: string) {
   const url = `https://www.wikidata.org/wiki/Special:EntityData/${dataID}.json`;
 
   const response = await fetch(url);
@@ -12,7 +24,7 @@ async function fetchPlanetData(dataID) {
 }
 
 // Fetch excerpt
-async function fetchExcerpt(wikiPage) {
+async function fetchExcerpt(wikiPage: string) {
   const url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + wikiPage;
 
   const response = await fetch(url);
@@ -21,7 +33,7 @@ async function fetchExcerpt(wikiPage) {
   return excerpt.extract;
 }
 
-function WikiExcerpt({ planet }) {
+function WikiExcerpt({ planet }: PlanetProps) {
   const [excerpt, setExcerpt] = useState("Loading");
 
   const { wikiPage } = planetCatalogue[planet];
@@ -47,12 +59,12 @@ function WikiExcerpt({ planet }) {
   );
 }
 
-function PlanetInfo({ planet }) {
+function PlanetInfo({ planet }: PlanetProps) {
   const [distance, setDistance] = useState("Loading");
   const [temperature, setTemperature] = useState("Loading");
   const [radius, setRadius] = useState("Loading");
 
-  const { dataID, showDistance, showTemperature } = planetCatalogue[planet];
+  const { dataID, showDistance } = planetCatalogue[planet];
 
   useEffect(
     function () {
@@ -90,7 +102,10 @@ function PlanetInfo({ planet }) {
   );
 }
 
-export default function PlanetDetails({ currentPlanet, setCurrentPlanet }) {
+export default function PlanetDetails({
+  currentPlanet,
+  setCurrentPlanet,
+}: PlanetDetailProps) {
   const { planetName, stinger, previousPlanet, nextPlanet } =
     planetCatalogue[currentPlanet];
 

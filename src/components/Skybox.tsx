@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useRef } from "react";
 
-function createPathStrings(filename) {
+function createPathStrings(filename: string) {
   const basePath = "/Skybox-images/";
   const baseFilename = basePath + filename;
   const fileType = ".png";
@@ -13,7 +13,7 @@ function createPathStrings(filename) {
   return pathStings;
 }
 
-function createMaterialArray(filename) {
+function createMaterialArray(filename: string) {
   const skyboxImagepaths = createPathStrings(filename);
   const materialArray = skyboxImagepaths.map((image) => {
     let texture = new THREE.TextureLoader().load(image);
@@ -30,7 +30,7 @@ const Skybox = () => {
   const skyboxGeo = new THREE.BoxGeometry(10000000, 10000000, 10000000);
   const skybox = new THREE.Mesh(skyboxGeo, materialArray);
 
-  const skyRef = useRef();
+  const skyRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
