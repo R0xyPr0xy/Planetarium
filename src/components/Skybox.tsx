@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { useRef } from "react";
 
 function createPathStrings(filename: string) {
   const basePath = "/Skybox-images/";

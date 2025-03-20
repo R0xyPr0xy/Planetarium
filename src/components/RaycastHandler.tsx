@@ -18,7 +18,6 @@ type RaycastHandlerProps = {
   setCurrentPlanet: (value: Planet) => void;
   showSidebar: boolean;
   setShowSidebar: (value: boolean) => void;
-  galaxyView: boolean;
   setGalaxyView: (value: boolean) => void;
 };
 
