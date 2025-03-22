@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { useEffect, useState, useRef } from "react";
-import { useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
+import { ThreeElements } from "@react-three/fiber";
 import planetCatalogue from "../data/planetCatalogue.json";
 
 const OrbitLines = () => {
@@ -16,7 +16,7 @@ const OrbitLines = () => {
         const circle = new THREE.LineLoop(edges, material);
         circle.rotation.x = Math.PI / 2;
 
-        const circleRef = useRef();
+        const circleRef = useRef<ThreeElements["primitive"] | null>(null);
 
         // Assign userdata for raycast logic
         useEffect(() => {

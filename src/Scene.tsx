@@ -1,13 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
-// @ts-ignore
 import CameraController from "./CameraController";
-// @ts-ignore
 import RaycastHandler from "./components/RaycastHandler";
 import planetCatalogue from "./data/planetCatalogue.json";
 import PlanetLoader from "./components/PlanetLoader";
-// @ts-ignore
 import OrbitLines from "./components/OrbitLines";
 import Skybox from "./components/Skybox";
 import { Planet } from "./types";

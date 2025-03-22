@@ -1,9 +1,20 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, RefObject } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
-import planetCatalogue from "./data/planetCatalogue";
+import planetCatalogue from "./data/planetCatalogue.json";
+import { Planet } from "./types";
 import * as THREE from "three";
 
-function CameraController({ orbitControlsRef, currentPlanet, galaxyView }) {
+type CameraControllerProps = {
+  currentPlanet: Planet;
+  orbitControlsRef: RefObject<any>;
+  galaxyView: boolean;
+};
+
+function CameraController({
+  orbitControlsRef,
+  currentPlanet,
+  galaxyView,
+}: CameraControllerProps) {
   const { camera } = useThree();
 
   // Define planet and galaxy positions
