@@ -1,6 +1,6 @@
-.galaxy-view-button {
+.sidebarVisibilityButton {
   position: absolute;
-  top: 3%;
+  bottom: 3%;
   right: 0;
   width: 50px;
   background-size: cover;
@@ -11,10 +11,11 @@
   border-bottom-left-radius: 8px;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
-  .galaxy-icon {
-    max-width: 100%;
-    display: block;
-  }
+.arrowIcon {
+  max-width: 100%;
+  display: block;
 }

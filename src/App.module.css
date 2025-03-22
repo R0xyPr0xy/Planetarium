@@ -1,4 +1,4 @@
-.planet-app {
+.planetApp {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,12 +6,12 @@
   overflow: hidden;
 }
 
-.planet-scene {
+.planetScene {
   flex-grow: 1;
   position: relative;
 }
 
-.planet-sidebar {
+.planetSidebar {
   flex-grow: 1;
   width: 55vw;
   padding: 20px;

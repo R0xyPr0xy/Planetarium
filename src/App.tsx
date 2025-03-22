@@ -1,11 +1,9 @@
-import "./App.css";
-
+import styles from "./App.module.css";
 import Scene from "./Scene";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PlanetDetails from "./PlanetDetail";
 import SidebarVisibilityButton from "./components/SidebarVisibilityButton";
-// @ts-ignore
 import GalaxyViewButton from "./components/GalaxyViewButton";
 import { Planet } from "./types";
 
@@ -23,10 +21,10 @@ function App() {
   };
 
   return (
-    <div className="planet-app">
+    <div className={styles.planetApp}>
       {/* Three.js Canvas */}
       <motion.div
-        className="planet-scene"
+        className={styles.planetScene}
         animate={{ width: showSidebar ? "45vw" : "100vw" }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
@@ -46,7 +44,7 @@ function App() {
       <AnimatePresence>
         {showSidebar && (
           <motion.div
-            className="planet-sidebar"
+            className={styles.planetSidebar}
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}

@@ -1,4 +1,4 @@
-import "./SidebarVisibilityButton.css";
+import styles from "./SidebarVisibilityButton.module.css";
 
 import { MouseEventHandler } from "react";
 import forwardArrowIcon from "../assets/forward-arrow-icon.png";
@@ -11,8 +11,8 @@ export default function SidebarVisibilityButton({
   onClick,
 }: SidebarVisibilityButtonProps) {
   return (
-    <button className="sidebar-visibility-button" onClick={onClick}>
-      <img src={forwardArrowIcon} className="arrow-icon"></img>
+    <button className={styles.sidebarVisibilityButton} onClick={onClick}>
+      <img src={forwardArrowIcon} className={styles.arrowIcon}></img>
     </button>
   );
 }

@@ -1,4 +1,4 @@
-import "./PlanetDetail.css";
+import styles from "./PlanetDetail.module.css";
 
 import { useEffect, useState } from "react";
 import planetCatalogueData from "./data/planetCatalogue.json";
@@ -52,9 +52,9 @@ function WikiExcerpt({ planet }: PlanetProps) {
   );
 
   return (
-    <div className="wiki-excerpt">
+    <div className={styles.wikiExcerpt}>
       {" "}
-      <span className="highlighted">
+      <span className={styles.highlighted}>
         {excerpt || "No excerpt available"} — Wikipedia
       </span>
     </div>
@@ -86,19 +86,20 @@ function PlanetInfo({ planet }: PlanetProps) {
   );
 
   return (
-    <div className="planet-info">
+    <div className={styles.planetInfo}>
       {showDistance && (
-        <p className="earth-distance">
+        <p>
           Distance to Earth :{" "}
-          <span className="highlighted">{distance} km </span>
+          <span className={styles.highlighted}>{distance} km </span>
         </p>
       )}
       {}
-      <p className="temperature">
-        Temperature : <span className="highlighted">{temperature} kelvin </span>
+      <p>
+        Temperature :{" "}
+        <span className={styles.highlighted}>{temperature} kelvin </span>
       </p>
-      <p className="radius">
-        Radius : <span className="highlighted">{radius} km </span>
+      <p>
+        Radius : <span className={styles.highlighted}>{radius} km </span>
       </p>
     </div>
   );
@@ -119,18 +120,21 @@ export default function PlanetDetails({
   };
 
   return (
-    <div className="planet-details">
-      <div className="information-box">
-        <h1 className="planet-name">{planetName}</h1>
-        <hr className="solid-rule" />
-        <p className="stinger">{stinger}</p>
+    <div className={styles.planetDetails}>
+      <div className={styles.informationBox}>
+        <h1 className={styles.planetName}>{planetName}</h1>
+        <hr className={styles.solidRule} />
+        <p className={styles.stinger}>{stinger}</p>
         <PlanetInfo planet={currentPlanet} />
         <WikiExcerpt planet={currentPlanet} />
         <button
-          className="previous-button"
+          className={styles.previousButton}
           onClick={selectPreviousPlanet}
         ></button>
-        <button className="next-button" onClick={selectNextPlanet}></button>
+        <button
+          className={styles.nextButton}
+          onClick={selectNextPlanet}
+        ></button>
       </div>
     </div>
   );
