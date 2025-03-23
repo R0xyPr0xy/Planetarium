@@ -10,6 +10,12 @@ const PlanetLoader = () => {
       {Object.entries(planetCatalogue).map(([key, planet]) => {
         const gltf = useLoader(GLTFLoader, planet.modelPath);
         const planetRef = useRef<ThreeElements["primitive"] | null>(null);
+        let rotationValue = Math.PI;
+
+        // Adjust model rotation to avoid seams
+        if (key == "neptune" || key == "uranus") {
+          rotationValue = 0;
+        }
 
         // Assign userdata for raycast logic
         useEffect(() => {
@@ -31,7 +37,7 @@ const PlanetLoader = () => {
             ref={planetRef}
             scale={planet.scale}
             position={planet.position}
-            rotation={[0, Math.PI, 0]}
+            rotation={[0, rotationValue, 0]}
           />
         );
       })}
